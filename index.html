@@ -18,7 +18,7 @@
           <button @click="askContractToMintNft"
             class="bg-purple-600 text-white text-lg font-semibold py-2 rounded shadow-md w-full">Mint NFT</button>
         </template>
-        <template x-if="!rinkebyNetwork">
+        <template x-if="currentAccount && !rinkebyNetwork">
           <p class="text-red-500 text-lg">Hey — I see you're connected to mainnet but this only works on Rinkeby!</p>
         </template>
         <template x-if="!currentAccount">
