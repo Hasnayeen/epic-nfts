@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div id="app" x-data="app" class="min-h-screen grid justify-center bg-blueGray-900 text-white">
+      <main class="space-y-4 max-w-2xl mt-24">
+        <h1 class="py-2 text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-600 to-purple-600">My NFT Collection</h1>
+        <p class="text-lg font-semibold">
+          Each unique. Each beautiful. Discover your NFT today.
+        </p>
+        <template x-if="currentAccount && rinkebyNetwork">
+          <button @click="askContractToMintNft"
+            class="bg-purple-600 text-white text-lg font-semibold py-2 rounded shadow-md w-full">Mint NFT</button>
+        </template>
+        <template x-if="!rinkebyNetwork">
+          <p class="text-red-500 text-lg">Hey — I see you're connected to mainnet but this only works on Rinkeby!</p>
+        </template>
+        <template x-if="!currentAccount">
+          <button @click="connectWallet"
+            class="bg-purple-600 text-white text-lg font-semibold py-2 rounded shadow-md w-full">Connect Wallet</button>
+        </template>
+        <div class="">
+          <a href="https://testnets.opensea.io/collection/anomialnft-v2" class="bg-purple-900 text-white text-lg font-semibold text-center px-4 py-2 rounded shadow-md block w-full">🌊 View Collection on OpenSea</a>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
